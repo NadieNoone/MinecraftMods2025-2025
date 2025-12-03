@@ -1,3 +1,16 @@
+#####################################################################
+#
+#   PASSOS PER A AFEGIR MODS
+#   1.- Afegir-lo a la categoría correcta. (Si aquesta categoría no existeix, crearla)
+#   2.- Posar quin mod és en un comentari amb el següent format: NOM - ARQUITECTURA (FORGE / NEOFORGE) - VERSIÓ
+#   3.- Afegir el link de descàrrega a sota de modrinth. ÉS NECESSRI que sigui directament el link de descàrrega. (Click dret boto de descàrrega -> copiar link)
+#
+#   EXEMPLE:
+#   #Jenny's mod NEOFORGE 1.0.0
+#   https://cdn.modrinth.com/data/797897/version/768768/jennysmod-1.0.0.jar
+#
+#####################################################################
+
 #DEPENDENCIES
 #GECKOLIB FORGE 4.8.2 
 https://cdn.modrinth.com/data/8BmcQJ2H/versions/aVW7Z5da/geckolib-forge-1.20.1-4.8.2.jar
