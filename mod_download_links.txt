@@ -1,1 +1,19 @@
-https://cdn.modrinth.com/data/Xvg6q5Wp/versions/44ilyZbi/thermal_foundation-1.20.1-11.0.6.70.jar
+#DEPENDENCIES
+#GECKOLIB FORGE 4.8.2 
+https://cdn.modrinth.com/data/8BmcQJ2H/versions/aVW7Z5da/geckolib-forge-1.20.1-4.8.2.jar
+
+#BOSSES
+#Mowzies Mobs FORGE v1.7.3
+https://cdn.modrinth.com/data/BFbX9xcm/versions/WMCZ4t5U/mowziesmobs-1.7.3.jar
+
+#The Graveyard FORGE 3.1
+https://cdn.modrinth.com/data/U1jdQuSf/versions/Q66WyQ3F/The_Graveyard_3.1_%28FORGE%29_for_1.20.1.jar
+
+#EEEAB's Mobs FORGE 0.97-Fix
+https://cdn.modrinth.com/data/N8MNCv66/versions/NaWjW8bl/eeeabsmobs-1.20.1-0.97-Fix.jar
+
+#CATACLYSM FORGE 3.16
+https://cdn.modrinth.com/data/46KJle7n/versions/NvvXful4/L_Enders_Cataclysm-3.16.jar
+
+#Village and Spillage NEO/FORGE 1.2.8 
+https://cdn.modrinth.com/data/kLoMCc4b/versions/90YOIp4K/illageandspillagerespillaged-1.2.8.jar
