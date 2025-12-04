@@ -1,0 +1,57 @@
+name: Download Mods and Release
+
+on:
+  push:
+    branches:
+      - main  # Trigger on commits to main branch
+
+jobs:
+  download-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repo
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set ZIP name and tag
+      - name: Set names
+        id: vars
+        run: |
+          DATE=$(date +%Y%m%d)
+          SHORT_SHA=${GITHUB_SHA::5}
+          ZIP_NAME="mods-$DATE-$SHORT_SHA.zip"
+          TAG_NAME="mods-$DATE-$SHORT_SHA"
+          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+
+      # Step 3: Create mods folder
+      - name: Create mods folder
+        run: mkdir -p mods
+
+      # Step 4: Download mods
+      - name: Download mods
+        run: |
+          while IFS= read -r url; do
+            url=$(echo "$url" | xargs)
+            if [[ -z "$url" || "$url" == \#* ]]; then
+              continue
+            fi
+            echo "Downloading $url..."
+            curl -L -o "mods/$(basename $url)" "$url"
+          done < mod_download_links.txt
+
+      # Step 5: Zip mods folder
+      - name: Zip mods
+        run: zip -r "${{ env.ZIP_NAME }}" mods
+
+      # Step 6: Create or update release and upload ZIP
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ env.TAG_NAME }}
+          name: ${{ env.TAG_NAME }}
+          body: "Automated mods release for commit $GITHUB_SHA"
+          files: ${{ env.ZIP_NAME }}
+          draft: false
+          prerelease: false
