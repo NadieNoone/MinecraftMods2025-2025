@@ -33,13 +33,19 @@ jobs:
       - name: Download mods
         run: |
           while IFS= read -r url; do
-            url=$(echo "$url" | xargs)
+            # Remove leading/trailing whitespace without xargs
+            url="${url#"${url%%[![:space:]]*}"}"
+            url="${url%"${url##*[![:space:]]}"}"
+
+            # Skip empty lines or comments
             if [[ -z "$url" || "$url" == \#* ]]; then
               continue
             fi
+
             echo "Downloading $url..."
-            curl -L -o "mods/$(basename $url)" "$url"
+            curl -L -o "mods/$(basename "$url")" "$url"
           done < mod_download_links.txt
+
 
       # Step 5: Zip mods folder
       - name: Zip mods
